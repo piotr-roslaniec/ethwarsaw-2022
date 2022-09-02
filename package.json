@@ -1,0 +1,16 @@
+{
+    "name": "root",
+    "private": true,
+    "workspaces": [
+        "packages/*"
+    ],
+    "scripts": {
+        "build": "yarn workspaces foreach -vitp run build && cp packages/snap/snap.manifest.json packages/snap-ui/dist/",
+        "dev": "yarn workspaces foreach -vitp run dev",
+        "typecheck": "yarn workspaces foreach -vip run typecheck",
+        "lint": "yarn workspaces foreach -vip run lint",
+        "lint:errors": "yarn workspaces foreach -vip run lint -- --quiet",
+        "lint:fix": "yarn workspaces foreach -vip run lint:fix"
+    },
+    "packageManager": "yarn@3.2.1"
+}
