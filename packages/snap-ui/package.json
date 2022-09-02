@@ -7,13 +7,13 @@
     "@aleohq/ui": "^0.0.9",
     "@ant-design/icons": "^4.4.0",
     "@shopify/web-worker": "^4.0.2",
-    "snap-adapter": "workspace:*",
     "antd": "^4.21.5",
     "babel-loader": "^8.2.5",
     "copy-to-clipboard": "^3.3.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "sha3": "^2.1.4",
+    "snap-adapter": "workspace:*",
     "web-vitals": "^0.2.4"
   },
   "devDependencies": {

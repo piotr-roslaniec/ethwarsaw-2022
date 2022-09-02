@@ -4,7 +4,6 @@ import { Layout, Menu } from "antd";
 import { Button, Card, Col, Row } from "antd";
 import React, { useEffect, useState } from "react";
 
-import { NewVanityAccount } from "./NewVanityAccount";
 import { NewAccount } from "./NewAccount";
 import { RecoverAccount } from "./RecoverAccount";
 import { SignMessage } from "./SignMessage";
@@ -45,9 +44,6 @@ function App() {
           <Menu.Item key="0" onClick={() => setMenuIndex(0)}>
             Create Account
           </Menu.Item>
-          <Menu.Item key="1" onClick={() => setMenuIndex(1)}>
-            Create Vanity Account
-          </Menu.Item>
           <Menu.Item key="2" onClick={() => setMenuIndex(2)}>
             Recover Account
           </Menu.Item>
@@ -80,7 +76,6 @@ function App() {
           </Card>
         )}
         {snapConnected && menuIndex === 0 && <NewAccount />}
-        {snapConnected && menuIndex === 1 && <NewVanityAccount />}
         {snapConnected && menuIndex === 2 && <RecoverAccount />}
         {snapConnected && menuIndex === 3 && <SignMessage />}
       </Content>

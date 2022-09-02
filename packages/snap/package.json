@@ -33,11 +33,11 @@
   "dependencies": {
     "@metamask/browser-passworder": "^3.0.0",
     "@metamask/key-tree": "^3.0.1",
-    "snap-adapter": "workspace:*",
-    "wasm-bundler": "workspace:*",
     "async-mutex": "^0.3.2",
     "eth-rpc-errors": "^4.0.3",
-    "sha3": "^2.1.4"
+    "sha3": "^2.1.4",
+    "snap-adapter": "workspace:*",
+    "wasm-bundler": "workspace:*"
   },
   "devDependencies": {
     "@metamask/eslint-config": "^8.0.0",
