@@ -1,6 +1,7 @@
 import * as passworder from '@metamask/browser-passworder';
 import { PrivateAccount } from 'account';
 import { Mutex } from 'async-mutex';
+import { ethErrors } from 'eth-rpc-errors';
 import { Bip44Node } from './types';
 
 export class WalletState {
@@ -10,21 +11,8 @@ export class WalletState {
         public readonly accountMap: Record<string, PrivateAccount> = {}
     ) { }
 
-    public get accounts(): Array<PrivateAccount> {
-        return Object.values(this.accountMap);
-    }
-
-    public get addresses(): Array<string> {
-        return this.accounts.map(a => a.address);
-    }
-
     public importAccount(account: PrivateAccount): WalletState {
         return new WalletState(this.accountIndex, { ...this.accountMap, [account.address]: account });
-    }
-
-    public deleteAccount(address: string): WalletState {
-        const { [address]: _, ...accounts } = this.accountMap;
-        return new WalletState(this.accountIndex, accounts);
     }
 
     public incrementAccountIndex(): WalletState {

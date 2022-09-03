@@ -5,9 +5,11 @@ import { RpcMethod, RpcParams } from 'snap-adapter';
 import * as handlers from './handlers';
 import { SnapState } from './state';
 import { Bip44Node } from './types';
+import { SubstrateApi } from './substrate-api';
 
 let entropy: Bip44Node;
 let state: SnapState;
+let api: SubstrateApi;
 
 type RequestObject = { method: RpcMethod; params: RpcParams };
 
@@ -18,18 +20,25 @@ wallet.registerRpcMessageHandler(async (originString: string, { method, params }
     });
   }
 
-  if (!state) {
-    state = await SnapState.fromPersisted(entropy);
+  if (!api) {
+    api = new SubstrateApi();
+    await api.init();
   }
+
+  state = await SnapState.fromPersisted(entropy);
+
   switch (method) {
     case "isEnabled":
       return handlers.isEnabled();
 
     case "getAccountFromSeed":
-      return handlers.getAccountFromSeed(state, params);
+      return await handlers.getAccountFromSeed(state, params);
 
     case "generateNewAccount":
-      return handlers.generateAccount(state, entropy);
+      return await handlers.generateAccount(state, entropy);
+
+    case "signTransaction":
+      return await handlers.signTransaction(state, params, api);
 
     default:
       throw ethErrors.rpc.methodNotFound({ data: { request: { method, params } } });

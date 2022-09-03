@@ -6,7 +6,7 @@
         "polkadot-apps"
     ],
     "scripts": {
-        "build": "yarn workspaces foreach -vitp run build && cp azero-snap/packages/snap/snap.manifest.json polkadot-apps/snap.manifest.json",
+        "build": "yarn workspaces foreach -vitp run build && cp azero-snap/packages/aleph-zero-snap/snap.manifest.json polkadot-apps/packages/apps/build/snap.manifest.json",
         "start": "yarn workspaces foreach -vitp run start",
         "typecheck": "yarn workspaces foreach -vip run typecheck",
         "lint": "yarn workspaces foreach -vip run lint",
