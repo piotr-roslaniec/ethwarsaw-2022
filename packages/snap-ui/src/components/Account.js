@@ -4,7 +4,7 @@ import { Button, Card, Form, Input } from "antd";
 import { CopyButton } from "./CopyButton";
 
 export const Account = ({ account, onDeleteAccount, onExportSeed }) => {
-    const { privateKey, viewKey, address, seed } = account;
+    const { privateKey, publicKey, address, seed } = account;
     const layout = { labelCol: { span: 2 }, wrapperCol: { span: 21 } };
     return (
         <Card>
@@ -13,8 +13,8 @@ export const Account = ({ account, onDeleteAccount, onExportSeed }) => {
                     <Input
                         size="large"
                         placeholder="View Key"
-                        value={viewKey}
-                        addonAfter={<CopyButton data={viewKey} />}
+                        value={publicKey}
+                        addonAfter={<CopyButton data={publicKey} />}
                         disabled
                     />
                 </Form.Item>
