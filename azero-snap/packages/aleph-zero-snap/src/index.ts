@@ -1,4 +1,5 @@
 import { KeyPairFactory } from './account';
+import { KeyPairFactory } from './account';
 import { ethErrors } from 'eth-rpc-errors';
 import { RpcMethod, RpcParams } from 'snap-adapter';
 

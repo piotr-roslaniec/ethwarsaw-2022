@@ -1,12 +1,11 @@
 {
-    "name": "root",
+    "name": "azero-snap",
     "private": true,
     "workspaces": [
-        "azero-snap",
-        "polkadot-apps"
+        "packages/*"
     ],
     "scripts": {
-        "build": "yarn workspaces foreach -vitp run build && cp azero-snap/packages/aleph-zero-snap/snap.manifest.json polkadot-apps/packages/apps/build/snap.manifest.json",
+        "build": "yarn workspaces foreach -vitp run build",
         "start": "yarn workspaces foreach -vitp run start",
         "typecheck": "yarn workspaces foreach -vip run typecheck",
         "lint": "yarn workspaces foreach -vip run lint",

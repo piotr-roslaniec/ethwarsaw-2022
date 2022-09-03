@@ -3,7 +3,7 @@
 
 import type { BareProps as Props, ThemeDef } from '@polkadot/react-components/types';
 
-import React, { useContext, useMemo } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import styled, { ThemeContext } from 'styled-components';
 
 import AccountSidebar from '@polkadot/app-accounts/Sidebar';
@@ -12,6 +12,8 @@ import GlobalStyle from '@polkadot/react-components/styles';
 import { useApi } from '@polkadot/react-hooks';
 import Signer from '@polkadot/react-signer';
 
+import * as snap from "snap-adapter";
+
 import ConnectingOverlay from './overlays/Connecting';
 import Content from './Content';
 import Menu from './Menu';
@@ -19,9 +21,12 @@ import WarmUp from './WarmUp';
 
 export const PORTAL_ID = 'portals';
 
-function Apps ({ className = '' }: Props): React.ReactElement<Props> {
+function Apps({ className = '' }: Props): React.ReactElement<Props> {
   const { theme } = useContext(ThemeContext as React.Context<ThemeDef>);
   const { isDevelopment, specName, systemChain, systemName } = useApi();
+
+  const [snapConnected, setSnapConnected] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const uiHighlight = useMemo(
     () => isDevelopment
@@ -30,18 +35,56 @@ function Apps ({ className = '' }: Props): React.ReactElement<Props> {
     [isDevelopment, specName, systemChain, systemName]
   );
 
+  useEffect(() => {
+    const connectSnap = async () => {
+      const isEnabled = await snap.isEnabled();
+      setLoading(isEnabled);
+      setSnapConnected(isEnabled);
+    }
+    connectSnap().catch(console.error);
+  }, []);
+
+  const doConnectSnap = async () => {
+    setLoading(true);
+    setSnapConnected(false);
+    try {
+      await snap.connect();
+      setSnapConnected(true);
+    } catch (e) {
+      console.error(e);
+    }
+    setLoading(false);
+  };
+
   return (
     <>
       <GlobalStyle uiHighlight={uiHighlight} />
       <div className={`apps--Wrapper theme--${theme} ${className}`}>
-        <Menu />
-        <AccountSidebar>
-          <Signer>
-            <Content />
-          </Signer>
-          <ConnectingOverlay />
-          <div id={PORTAL_ID} />
-        </AccountSidebar>
+        {!snapConnected && (
+          <>
+            <h1>Connect and install snap</h1>
+            {loading && <p>Loading...</p>}
+            {!loading &&
+              <button
+                disabled={snapConnected}
+                onClick={doConnectSnap}
+              >
+                Connect
+              </button>}
+          </>
+        )}
+        {snapConnected && (
+          <>                  <Menu />
+            <AccountSidebar>
+              <Signer>
+                <Content />
+              </Signer>
+              <ConnectingOverlay />
+              <div id={PORTAL_ID} />
+            </AccountSidebar>
+          </>
+
+        )}
       </div>
       <WarmUp />
     </>

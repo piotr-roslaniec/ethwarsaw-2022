@@ -70,6 +70,7 @@ export class KeyPairFactory {
     static SS58FORMAT = 42; // default
     static COIN_TYPE = 434; // kusama
 
+
     static fromSeed(seed: Uint8Array): KeyringPair {
         const keyring = new Keyring({ ss58Format: KeyPairFactory.SS58FORMAT, type: "sr25519" });
         return keyring.addFromSeed(seed);
