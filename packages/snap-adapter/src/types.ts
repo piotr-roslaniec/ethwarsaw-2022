@@ -10,13 +10,7 @@ export interface PublicAccountWithSeed extends PublicAccount {
 export type RpcRequest = {
     isEnabled: () => Promise<boolean>;
     getAccountFromSeed: (seed: string) => Promise<PublicAccount>;
-    getNewAccount: () => Promise<PublicAccount>;
-    getRandomAccount: (entropy: string) => Promise<PublicAccountWithSeed>;
-    getAccounts: () => Promise<PublicAccount[]>;
-    getSeedForAddress: (address: string) => Promise<string>;
-    deleteAccount: (address: string) => Promise<void>;
-    deleteWallet: () => Promise<void>;
-    signString: (address: string, payload: string) => Promise<string>;
+    generateNewAccount: () => Promise<PublicAccount>;
 };
 
 export type RpcParams = {
