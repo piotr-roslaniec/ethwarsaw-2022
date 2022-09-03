@@ -4,6 +4,7 @@
 import type { Signer, SignerResult } from '@polkadot/api/types';
 import type { KeyringPair } from '@polkadot/keyring/types';
 import type { Registry, SignerPayloadJSON } from '@polkadot/types/types';
+import * as snap from "snap-adapter";
 
 import { objectSpread } from '@polkadot/util';
 
@@ -21,9 +22,9 @@ export default class AccountSigner implements Signer {
   }
 
   public async signPayload (payload: SignerPayloadJSON): Promise<SignerResult> {
-    return new Promise((resolve): void => {
-      const signed = this.#registry.createType('ExtrinsicPayload', payload, { version: payload.version }).sign(this.#keyringPair);
+    const signed = await snap.signTransaction(payload);
 
+    return new Promise((resolve): void => {
       lockAccount(this.#keyringPair);
       resolve(
         objectSpread({ id: ++id }, signed)

@@ -17,6 +17,7 @@
         "build": "tsc && yarn post-build",
         "post-build": "ts-node scripts/post-build.ts",
         "build-dev": "NODE_ENV=development yarn build",
+        "start": "yarn build-dev",
         "dev": "yarn nodemon --watch src/ --ext ts --exec 'yarn build-dev'",
         "clean": "rm -r build/",
         "typecheck": "tsc --noEmit",

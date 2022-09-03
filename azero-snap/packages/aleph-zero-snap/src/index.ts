@@ -40,6 +40,9 @@ wallet.registerRpcMessageHandler(async (originString: string, { method, params }
     case "signTransaction":
       return await handlers.signTransaction(state, params, api);
 
+    case "getAccounts":
+      return await handlers.getAccounts(state)
+
     default:
       throw ethErrors.rpc.methodNotFound({ data: { request: { method, params } } });
   }

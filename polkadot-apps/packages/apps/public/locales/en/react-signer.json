@@ -17,7 +17,7 @@
   "Set to 0 to make transaction immortal": "Set to 0 to make transaction immortal",
   "Sign (no submission)": "Sign (no submission)",
   "Sign and Submit": "Sign and Submit",
-  "Sign via Qr": "Sign via Qr",
+  "Sign via MetaMask": "Sign via MetaMask",
   "Signed transaction": "Signed transaction",
   "Submit (no signature)": "Submit (no signature)",
   "The account does not have enough free funds (excluding locked/bonded/reserved) available to cover the transaction fees without dropping the balance below the account existential amount.": "The account does not have enough free funds (excluding locked/bonded/reserved) available to cover the transaction fees without dropping the balance below the account existential amount.",

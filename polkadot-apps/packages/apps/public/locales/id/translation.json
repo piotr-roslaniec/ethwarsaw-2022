@@ -523,7 +523,7 @@
   "Sign and Submit": "Tanda tangan dan Kirimkan",
   "Sign for multisig": "Tanda tangan untuk multisig",
   "Sign message": "Tandatangan pesan",
-  "Sign via Qr": "Tanda tangan melalui Qr",
+  "Sign via MetaMask": "Tanda tangan melalui Qr",
   "Sign via {{hardwareType}}": "Tanda tangan melalui {{hardwareType}}",
   "Signed transaction": "Tanda tangan transaksi",
   "Since the multisig function like any other account, once created it is available for selection anywhere accounts are used and needs to be funded before use.": "Karena fungsi multisig seperti akun lainnya, setelah dibuat lalu tersedia untuk dipilih di akun mana saja dan perlu di danai sebelum digunakan.",
