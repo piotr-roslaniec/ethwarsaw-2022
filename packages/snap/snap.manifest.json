@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "proposedName": "Aleph Zero Snap",
   "description": "Aleph Zero Snap",
   "repository": {
@@ -12,7 +12,7 @@
       "npm": {
         "filePath": "dist/bundle.js",
         "iconPath": "images/icon.svg",
-        "packageName": "snap",
+        "packageName": "aleph-zero-snap",
         "registry": "https://registry.npmjs.org/"
       }
     }

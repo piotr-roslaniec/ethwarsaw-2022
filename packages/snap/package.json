@@ -1,6 +1,6 @@
 {
-  "name": "snap",
-  "version": "0.1.0",
+  "name": "aleph-zero-snap",
+  "version": "0.2.0",
   "description": "Aleph Zero Snap",
   "author": "Piotr Roslaniec <p.roslaniec@gmail.com>",
   "repository": {
