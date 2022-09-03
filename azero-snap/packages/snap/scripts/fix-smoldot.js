@@ -2,7 +2,7 @@ const fs = require('fs').promises;
 const path = require('path');
 
 const dirPath =
-  '../../../node_modules/@substrate/smoldot-light/dist/cjs/instance/autogen';
+  '../../../../node_modules/@substrate/smoldot-light/dist/cjs/instance/autogen';
 
 // SES doesn't like double slashes in strings so we need to replace them with single slashes
 // and string concatenation.
