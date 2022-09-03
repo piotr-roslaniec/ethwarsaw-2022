@@ -1,4 +1,5 @@
 
+import { Keyring } from '@polkadot/api';
 import { KeyringPair } from '@polkadot/keyring/types';
 import { hexToU8a, u8aToHex } from '@polkadot/util';
 import { SnapState } from './state';
@@ -30,9 +31,7 @@ export const recoverAccount = (state: SnapState, seed: string): PublicAccount =>
 
 export class KeyPairFactory {
     static fromSeed(seed: Uint8Array): KeyringPair {
-        // TODO:
-        // const keyring = new Keyring();
-        // return keyring.addFromSeed(seed);
-        return { address: "address!", publicKey: new Uint8Array([48]) } as any;
+        const keyring = new Keyring();
+        return keyring.addFromSeed(seed);
     }
 }
