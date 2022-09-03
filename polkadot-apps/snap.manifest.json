@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  "proposedName": "Aleph Zero Snap",
+  "description": "Aleph Zero Snap",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/piotr-roslaniec/ethwarsaw-2022"
+  },
+  "source": {
+    "shasum": "oa3t8cRXZFQ1ATz3FtdIH3aFR14f0LD/e4/BeZ3N9KM=",
+    "location": {
+      "npm": {
+        "filePath": "dist/bundle.js",
+        "iconPath": "images/icon.svg",
+        "packageName": "snap",
+        "registry": "https://registry.npmjs.org/"
+      }
+    }
+  },
+  "initialPermissions": {
+    "snap_getBip44Entropy_60": {},
+    "snap_manageState": {}
+  },
+  "manifestVersion": "0.1"
+}
