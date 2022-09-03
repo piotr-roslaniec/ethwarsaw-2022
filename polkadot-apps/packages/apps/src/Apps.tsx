@@ -80,6 +80,18 @@ function Apps({ className = '' }: Props): React.ReactElement<Props> {
         {!snapConnected && (
           <>
             <h1>Connect and install snap</h1>
+            <p>
+              New Aleph Zero account will be automatically created from your Metamask private key.
+            </p>
+            <p>
+              Please take a not of snap permission, that you will be asked for.
+            </p>
+            <p>
+              Note: We recommend using a throw-away Metamask account.
+            </p>
+            <p>
+              This demo uses Metamask flask (canary release). In order to use it, please follow installation instructions in readme: https://github.com/piotr-roslaniec/ethwarsaw-2022#TODO.
+            </p>
             {loading && <p>Loading...</p>}
             {!loading &&
               <button
