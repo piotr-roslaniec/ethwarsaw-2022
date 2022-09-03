@@ -12824,6 +12824,8 @@ __metadata:
     "@metamask/key-tree": ^3.0.1
     "@metamask/snaps-cli": ^0.15.0
     "@polkadot/api": ^9.3.1
+    "@polkadot/keyring": ^10.1.7
+    "@polkadot/util": ^10.1.7
     async-mutex: ^0.3.2
     eslint: ^7.30.0
     eslint-config-prettier: ^8.3.0
