@@ -26,7 +26,8 @@
     "@polkadot/react-query": "^0.120.2-15-x",
     "@polkadot/react-signer": "^0.120.2-15-x",
     "punycode": "^2.1.1",
-    "query-string": "^7.1.1"
+    "query-string": "^7.1.1",
+    "snap-adapter": "workspace: *"
   },
   "devDependencies": {
     "@types/punycode": "^2.1.0",

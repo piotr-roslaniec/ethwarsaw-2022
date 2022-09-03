@@ -18,7 +18,6 @@
         "post-build": "ts-node scripts/post-build.ts",
         "build-dev": "NODE_ENV=development yarn build",
         "dev": "yarn nodemon --watch src/ --ext ts --exec 'yarn build-dev'",
-        "start": "yarn dev",
         "clean": "rm -r build/",
         "typecheck": "tsc --noEmit",
         "lint": "yarn lint:eslint && yarn lint:misc --check",
