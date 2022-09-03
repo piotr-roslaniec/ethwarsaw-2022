@@ -1,7 +1,6 @@
 {
     "name": "snap-adapter",
     "version": "0.2.0",
-    "description": "Access Aleph Zero Snap through a typed API",
     "description": "Access Snap through a typed API",
     "author": "Piotr Roslaniec <p.roslaniec@gmail.com>",
     "repository": {
