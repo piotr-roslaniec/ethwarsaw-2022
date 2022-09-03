@@ -90,7 +90,7 @@ function Apps({ className = '' }: Props): React.ReactElement<Props> {
               Note: We recommend using a throw-away Metamask account.
             </p>
             <p>
-              This demo uses Metamask flask (canary release). In order to use it, please follow installation instructions in readme: https://github.com/piotr-roslaniec/ethwarsaw-2022#TODO.
+              This demo uses Metamask flask (canary release). In order to use it, please follow installation instructions in readme: https://github.com/piotr-roslaniec/ethwarsaw-2022/tree/docs#installing-metamask-flask.
             </p>
             {loading && <p>Loading...</p>}
             {!loading &&
