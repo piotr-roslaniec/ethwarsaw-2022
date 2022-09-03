@@ -39,7 +39,8 @@ export const isEnabled = () => true;
 export const signTransaction = async (state: SnapState, params: RpcParams, api: SubstrateApi) => {
     console.log(`signing transaction: ${JSON.stringify(params)}`)
 
-    if (!params[0]) {
+    const transaction = params[0];
+    if (!transaction) {
         throw ethErrors.rpc.invalidParams('Missing parameter: transaction');
     }
 

@@ -159,7 +159,7 @@ async function extractParams (api: ApiPromise, address: string, options: Partial
   if (isHardware) {
     return ['signing', address, { ...options, signer: new LedgerSigner(api.registry, getLedger, accountOffset as number || 0, addressOffset as number || 0) }];
   } else if (isExternal && !isProxied) {
-    return ['qr', address, { ...options, signer: new QrSigner(api.registry, setQrState) }];
+    return ['qr', address, { ...options, signer: new AccountSigner(api.registry, pair) }];
   } else if (isInjected) {
     const injected = await web3FromSource(source as string);
 
@@ -415,7 +415,7 @@ function TxSigned ({ className, currentItem, requestAddress }: Props): React.Rea
           isDisabled={!senderInfo.signAddress || isRenderError}
           label={
             flags.isQr
-              ? t<string>('Sign via Qr')
+              ? t<string>('Sign via MetaMask')
               : isSubmit
                 ? t<string>('Sign and Submit')
                 : t<string>('Sign (no submission)')

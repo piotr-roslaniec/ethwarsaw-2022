@@ -510,7 +510,7 @@
   "Sign and Upload": "签名并上传",
   "Sign for multisig": "多重签名",
   "Sign message": "签名消息",
-  "Sign via Qr": "通过 Qr 签名",
+  "Sign via MetaMask": "通过 Qr 签名",
   "Sign via {{hardwareType}}": "通过{{hardwareType}}签名",
   "Signed transaction": "签名交易",
   "Since the multisig function like any other account, once created it is available for selection anywhere accounts are used and needs to be funded before use.": "因为这个多重签名功能和任何其它账户一样，一旦创建，它将可用于账户使用的所有地方来做选择，以及在使用之前需要先注入资金。",

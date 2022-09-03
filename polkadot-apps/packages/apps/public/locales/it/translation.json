@@ -672,7 +672,7 @@
   "Sign and Submit": "Firma ed Inoltra",
   "Sign for multisig": "Firma per il Multisig",
   "Sign message": "Firma messaggio",
-  "Sign via Qr": "Firma via QR",
+  "Sign via MetaMask": "Firma via QR",
   "Sign via {{hardwareType}}": "Firma via {{hardwareType}}",
   "Signed transaction": "Transazione firmata",
   "Since some extensions, such as the polkadot-js extension, protects you against all community reported phishing sites, there are valid reasons to use them for additional protection, even if you are not storing accounts in it.": "Ci sono valide ragioni per usare l'estensione polkadot-js, dato che essa ti protegge anche dai siti di phishing. Anche se non lo sfrutti per creare i tuoi account",

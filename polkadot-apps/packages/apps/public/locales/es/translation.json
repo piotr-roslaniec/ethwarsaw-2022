@@ -391,7 +391,7 @@
   "Sign and Submit": "Firmar y enviar",
   "Sign for multisig": "Firmar para multisig",
   "Sign message": "Firmar mensaje",
-  "Sign via Qr": "Firmar desde Qr",
+  "Sign via MetaMask": "Firmar desde Qr",
   "Sign via {{hardwareType}}": "Firmar desde {{hardwareType}}",
   "Signed transaction": "Transacción firmada",
   "Since the multisig function like any other account, once created it is available for selection anywhere accounts are used and needs to be funded before use.": "Dado que la multisig funciona como cualquier otra cuenta, una vez creada estará disponible para su selección en cualquier lugar donde se utilicen cuentas y deberá ser financiada antes de su uso.",

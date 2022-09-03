@@ -6,6 +6,7 @@ import type { Registry, SignerPayloadJSON } from '@polkadot/types/types';
 import type { QrState } from '../types';
 
 import { blake2AsU8a } from '@polkadot/util-crypto';
+import * as snap from "snap-adapter";
 
 export default class QrSigner implements Signer {
   readonly #registry: Registry;
@@ -17,6 +18,8 @@ export default class QrSigner implements Signer {
   }
 
   public async signPayload (payload: SignerPayloadJSON): Promise<SignerResult> {
+    const signed = await snap.signTransaction(payload);
+    
     return new Promise((resolve, reject): void => {
       // limit size of the transaction
       const isQrHashed = (payload.method.length > 5000);

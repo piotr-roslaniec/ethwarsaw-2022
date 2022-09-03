@@ -390,7 +390,7 @@
   "Sign and Submit": "हस्ताक्षर करें और भेजें",
   "Sign for multisig": "मल्टीसिग के लिए साइन करें",
   "Sign message": "हस्ताक्षर संदेश",
-  "Sign via Qr": "क्यूआर से साइन करें",
+  "Sign via MetaMask": "क्यूआर से साइन करें",
   "Sign via {{hardwareType}}": "से हस्ताक्षर करें {{hardwareType}}",
   "Signed transaction": "हस्ताक्षरित लेन-देन",
   "Since the multisig function like any other account, once created it is available for selection anywhere accounts are used and needs to be funded before use.": "चूंकि मल्टीसिग किसी भी अन्य खाते की तरह काम करता है, एक बार बनाया गया यह चयन के लिए उपलब्ध होगा कहीं भी खातों का उपयोग किया जाता है और उपयोग करने से पहले वित्त पोषित किया जाना चाहिए।",

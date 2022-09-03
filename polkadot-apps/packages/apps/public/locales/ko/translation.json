@@ -522,7 +522,7 @@
   "Sign and Submit": "서명하고 제출한다",
   "Sign for multisig": "멀트시그 위해 서명한다",
   "Sign message": "메시지를 서명하다",
-  "Sign via Qr": "QR통해서 서명한다",
+  "Sign via MetaMask": "QR통해서 서명한다",
   "Sign via {{hardwareType}}": "{{hardwareType}} 통해서 서명한다",
   "Signed transaction": "서명된 거래",
   "Since the multisig function like any other account, once created it is available for selection anywhere accounts are used and needs to be funded before use.": "다중서명 기능은 다른 계정과 마찬가지로 가능하기 때문에 일단 생성되면 모든 계정을 사용할 수 있으며, 사용하기 전에 잔고가 충분해야 합니다.",

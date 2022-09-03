@@ -7,7 +7,7 @@
     "url": "https://github.com/piotr-roslaniec/ethwarsaw-2022"
   },
   "source": {
-    "shasum": "9lm+X0m2WVua8M+hg+5IZMsgjZRr8zO1ADX17mmBAeE=",
+    "shasum": "QURdR8fRUvmT+t2g9mpEPl8bwS1VUzJ+72Kr05pshRw=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
@@ -19,7 +19,8 @@
   },
   "initialPermissions": {
     "snap_getBip44Entropy_434": {},
-    "snap_manageState": {}
+    "snap_manageState": {},
+    "endowment:network-access": {}
   },
   "manifestVersion": "0.1"
 }

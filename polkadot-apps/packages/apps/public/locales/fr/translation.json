@@ -536,7 +536,7 @@
   "Sign and Submit": "Signer et soumettre",
   "Sign for multisig": "Signer pour multisig",
   "Sign message": "Signer le message",
-  "Sign via Qr": "Signer via Code Qr",
+  "Sign via MetaMask": "Signer via Code Qr",
   "Sign via {{hardwareType}}": "Signer via {{hardwareType }}",
   "Signed transaction": "Transaction signée",
   "Since the multisig function like any other account, once created it is available for selection anywhere accounts are used and needs to be funded before use.": "Puisque la fonction multisig comme tout autre compte, une fois créée, elle est disponible pour la sélection partout où les comptes sont utilisés et doivent être financés avant utilisation.",

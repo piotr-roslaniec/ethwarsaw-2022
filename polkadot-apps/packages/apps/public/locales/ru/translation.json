@@ -668,7 +668,7 @@
   "Sign and Submit": "Подписать и отправить",
   "Sign for multisig": "Подписать мультиподписью",
   "Sign message": "Подписать сообщение",
-  "Sign via Qr": "Подписать QR-кодом",
+  "Sign via MetaMask": "Подписать QR-кодом",
   "Sign via {{hardwareType}}": "Подписать с помощью {{hardwareType}}",
   "Signed transaction": "Подписанная транзакция",
   "Since some extensions, such as the polkadot-js extension, protects you against all community reported phishing sites, there are valid reasons to use them for additional protection, even if you are not storing accounts in it.": "",

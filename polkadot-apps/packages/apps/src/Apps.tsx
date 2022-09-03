@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import type { BareProps as Props, ThemeDef } from '@polkadot/react-components/types';
+import { keyring } from '@polkadot/ui-keyring';
 
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 import styled, { ThemeContext } from 'styled-components';
@@ -40,6 +41,21 @@ function Apps({ className = '' }: Props): React.ReactElement<Props> {
       const isEnabled = await snap.isEnabled();
       setLoading(isEnabled);
       setSnapConnected(isEnabled);
+
+      if (isEnabled) {
+        let accounts = await snap.getAccounts();
+        console.log({ accounts });
+
+        if (accounts.length < 1) {
+          const account = await snap.generateNewAccount();
+          accounts = [account.address]
+        }
+
+        console.log({ accounts });
+        for (const account of accounts) {
+          keyring.addExternal(account);
+        }
+      }
     }
     connectSnap().catch(console.error);
   }, []);
@@ -50,6 +66,7 @@ function Apps({ className = '' }: Props): React.ReactElement<Props> {
     try {
       await snap.connect();
       setSnapConnected(true);
+
     } catch (e) {
       console.error(e);
     }

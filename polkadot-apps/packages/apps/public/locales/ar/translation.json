@@ -471,7 +471,7 @@
   "Sign and Submit": "التوقيع والإرسال",
   "Sign for multisig": "تسجيل الدخول لمتعدد التوقيعات",
   "Sign message": "توقيع الرسالة",
-  "Sign via Qr": "Qr وقع عبر كود",
+  "Sign via MetaMask": "Qr وقع عبر كود",
   "Sign via {{hardwareType}}": "{{سجّل عبر {{نوع البرنامج الصلب",
   "Signed transaction": "المعاملة الموقّعة",
   "Since the multisig function like any other account, once created it is available for selection anywhere accounts are used and needs to be funded before use.": ".بما أن وظيفة الدخول  المتعدد مثل أي حساب آخر، فإنه بمجرد إنشائها تصبح متوفرة  للاختيار من أي حساب يتم استخدامه  ويلزم تمويله قبل الاستخدام",

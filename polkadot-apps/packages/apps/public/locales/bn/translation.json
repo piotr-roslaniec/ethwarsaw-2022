@@ -508,7 +508,7 @@
   "Sign and Submit": "সই ও সাবমিট করুন",
   "Sign for multisig": "মাল্টিসিগ-এর জন্য সই করুন",
   "Sign message": "স্বাক্ষর বার্তা",
-  "Sign via Qr": "QR দিয়ে সই করুন",
+  "Sign via MetaMask": "QR দিয়ে সই করুন",
   "Sign via {{hardwareType}}": "{{hardwareType}} দিয়ে সই করুন",
   "Signed transaction": "সইকৃত ট্রানজেকশন",
   "Since the multisig function like any other account, once created it is available for selection anywhere accounts are used and needs to be funded before use.": "যেহেতু মাল্টিসিগ ফাংশন অন্য যেকোনো অ্যাকাউন্টের মতো, তাই একবার তৈরি হয়ে গেলে যেকোনো জায়গায় অ্যাকাউন্ট ব্যবহৃত হলে এটি নির্বাচনের বিদ্যমান থাকবে এবং ব্যবহারের আগে অর্থায়ন করতে হবে।",
