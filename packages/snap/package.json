@@ -17,10 +17,9 @@
   "scripts": {
     "dev": "nodemon --watch src/ --ext ts --ignore src/wasm.ts --exec 'yarn build && yarn serve'",
     "serve": "mm-snap serve",
-    "build": "yarn clean && yarn build:wasm && yarn build:tsc && mm-snap build --verboseErrors && cp snap.manifest.json dist/",
+    "build": "yarn clean  && yarn build:tsc && mm-snap build --verboseErrors && cp snap.manifest.json dist/",
     "build:tsc": "tsc",
-    "build:wasm": "node ./scripts/wasm-hex.js",
-    "build:clean": "rm -rf node_modules/wasm-bundler && yarn install --check-files && yarn clean && yarn build",
+    "build:clean": "yarn clean && yarn build",
     "clean": "rimraf dist build",
     "lint": "yarn lint:eslint && yarn lint:misc --check",
     "lint:eslint": "eslint . --cache --ext js,ts",

@@ -30,6 +30,7 @@ export const recoverAccount = (state: SnapState, seed: string): PublicAccount =>
 
 export class KeyPairFactory {
     static fromSeed(seed: Uint8Array): KeyringPair {
+        // TODO:
         // const keyring = new Keyring();
         // return keyring.addFromSeed(seed);
         return { address: "address!", publicKey: new Uint8Array([48]) } as any;
