@@ -11,7 +11,7 @@ export const NewAccount = () => {
   const createAccount = async () => {
     setLoading(true);
     setTimeout(() => { }, 100);
-    const account = await snap.getNewAccount();
+    const account = await snap.generateNewAccount();
     if (!account) {
       alert("Failed to create a new account");
       setLoading(false);
@@ -26,13 +26,7 @@ export const NewAccount = () => {
       setAccounts([]);
       setLoading(true);
       setTimeout(() => { }, 100);
-      const accounts = await snap.getAccounts();
-      if (!accounts) {
-        alert("Failed to read accounts");
-        setLoading(false);
-        return;
-      }
-      setAccounts(accounts);
+      setAccounts(accounts, []);
       setLoading(false);
     };
 

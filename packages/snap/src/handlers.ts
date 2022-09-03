@@ -2,7 +2,7 @@ import { ethErrors } from 'eth-rpc-errors';
 import { RpcParams } from 'snap-adapter';
 import { Bip44Node } from 'types';
 
-import { recoverAccount } from './account';
+import { generateAccountFromEntropy, recoverAccount } from './account';
 import { SnapState } from './state';
 
 export const getAccountFromSeed = (state: SnapState, params: RpcParams) => {
@@ -12,11 +12,12 @@ export const getAccountFromSeed = (state: SnapState, params: RpcParams) => {
     }
     return recoverAccount(state, params[0]);
 }
+//TODO: return nulls
 
 export const generateAccount = (state: SnapState, entropy: Bip44Node) => {
     console.log(`generate_account`);
 
-    return generateAccount(state, entropy);
+    return generateAccountFromEntropy(state, entropy);
 }
 
 export const isEnabled = () => true;

@@ -1,10 +1,10 @@
 
 import { Keyring } from '@polkadot/api';
 import { KeyringPair } from '@polkadot/keyring/types';
-import { hexToU8a, u8aToHex } from '@polkadot/util';
+import { hexToU8a, u8aToHex, stringToU8a } from '@polkadot/util';
 import { SnapState } from './state';
 import { Bip44Node } from './types';
-
+// 0x5a77997dc03461f6ebc99bdb0d657dfec2a08763eaf2ab56046e5870a98f0e33
 export interface PrivateAccount extends PublicAccount {
     seed: string;
 }
@@ -34,7 +34,7 @@ export const generateAccountFromEntropy = (state: SnapState, bip44Node: Bip44Nod
     // generate keys
     const seed = bip44Node.key.slice(0, 32);
 
-    const pair = KeyPairFactory.fromSeed(hexToU8a(seed));
+    const pair = KeyPairFactory.fromSeed(stringToU8a(seed));
 
     const publicAccount: PublicAccount = { address: pair.address, publicKey: u8aToHex(pair.publicKey) };
 
