@@ -11,6 +11,7 @@ export type RpcRequest = {
     isEnabled: () => Promise<boolean>;
     getAccountFromSeed: (seed: string) => Promise<PublicAccount>;
     generateNewAccount: () => Promise<PublicAccount>;
+    signTransaction: (transaction: string) => Promise<void>;
 };
 
 export type RpcParams = {

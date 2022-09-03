@@ -29,3 +29,7 @@ export const generateNewAccount = async (): Promise<PublicAccount> => {
     return await requestSnap("generateNewAccount", []);
 }
 
+
+export const sendTransaction = async (): Promise<void> => {
+    return await requestSnap("signTransaction", ["1"]);
+}

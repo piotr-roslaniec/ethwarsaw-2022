@@ -1,10 +1,15 @@
 
-import { Keyring } from '@polkadot/api';
+import { ApiPromise, Keyring } from '@polkadot/api';
 import { KeyringPair } from '@polkadot/keyring/types';
-import { hexToU8a, u8aToHex, stringToU8a } from '@polkadot/util';
-import { SnapState } from './state';
+import { SignerPayloadJSON } from "@polkadot/types/types";
+import { hexToU8a, stringToU8a, u8aToHex } from '@polkadot/util';
+import { ethErrors } from 'eth-rpc-errors';
+import { SnapState } from 'state';
+import { SubstrateApi } from 'substrate-api';
 import { Bip44Node } from './types';
-// 0x5a77997dc03461f6ebc99bdb0d657dfec2a08763eaf2ab56046e5870a98f0e33
+
+export type PayloadToSign = SignerPayloadJSON;
+
 export interface PrivateAccount extends PublicAccount {
     seed: string;
 }
@@ -15,32 +20,47 @@ export interface PublicAccount {
     publicKey: string;
 }
 
-export const persistAccount = (pair: PrivateAccount, state: SnapState) => {
+export const persistAccount = async (pair: PrivateAccount, state: SnapState) => {
     const newWalletState = state.wallet.importAccount(pair);
-    state.setState(newWalletState);
+    await state.setState(newWalletState);
 }
 
-export const recoverAccount = (state: SnapState, seed: string): PublicAccount => {
+export const recoverAccount = async (state: SnapState, seed: string): Promise<PublicAccount> => {
     const pair = KeyPairFactory.fromSeed(hexToU8a(seed));
 
     const publicAccount: PublicAccount = { address: pair.address, publicKey: u8aToHex(pair.publicKey) };
 
-    persistAccount({ ...publicAccount, seed }, state);
+    await persistAccount({ ...publicAccount, seed }, state);
 
     return publicAccount;
 }
 
-export const generateAccountFromEntropy = (state: SnapState, bip44Node: Bip44Node): PublicAccount => {
+export const generateAccountFromEntropy = async (state: SnapState, bip44Node: Bip44Node): Promise<PublicAccount> => {
     // generate keys
     const seed = bip44Node.key.slice(0, 32);
+    const binSeed = stringToU8a(seed);
 
-    const pair = KeyPairFactory.fromSeed(stringToU8a(seed));
+    const pair = KeyPairFactory.fromSeed(binSeed);
 
     const publicAccount: PublicAccount = { address: pair.address, publicKey: u8aToHex(pair.publicKey) };
 
-    persistAccount({ ...publicAccount, seed }, state);
+    await persistAccount({ ...publicAccount, seed: u8aToHex(binSeed) }, state);
 
     return publicAccount;
+}
+
+export const signTx = async (state: SnapState, transaction: PayloadToSign, api: SubstrateApi) => {
+    const accounts = Object.values(state.wallet.accountMap);
+    if (accounts.length < 1) {
+        throw ethErrors.rpc.resourceNotFound("No default account to sign transaction with");
+    }
+
+    const account = accounts[0];
+    const keyPair = KeyPairFactory.fromSeed(hexToU8a(account.seed));
+
+    const toSign = api.createTxPayload(transaction);
+
+    return toSign.sign(keyPair);
 }
 
 
@@ -51,7 +71,8 @@ export class KeyPairFactory {
     static COIN_TYPE = 434; // kusama
 
     static fromSeed(seed: Uint8Array): KeyringPair {
-        const keyring = new Keyring({ ss58Format: KeyPairFactory.SS58FORMAT });
+        const keyring = new Keyring({ ss58Format: KeyPairFactory.SS58FORMAT, type: "sr25519" });
         return keyring.addFromSeed(seed);
     }
 }
+

@@ -21,6 +21,19 @@ export const NewAccount = () => {
     setLoading(false);
   };
 
+
+  const sendTestTx = async () => {
+    setLoading(true);
+    setTimeout(() => { }, 100);
+    const account = await snap.sendTransaction("qew");
+    if (!account) {
+      alert("Failed to tx");
+      setLoading(false);
+      return;
+    }
+    setLoading(false);
+  };
+
   useEffect(() => {
     const readAccounts = async () => {
       setAccounts([]);
@@ -72,6 +85,17 @@ export const NewAccount = () => {
               <Button
                 type="primary"
                 onClick={createAccount}
+                shape="round"
+                size="large"
+                loading={!!loading}
+              >
+                Create
+              </Button>
+            </Col>
+            <Col>
+              <Button
+                type="secondary"
+                onClick={sendTestTx}
                 shape="round"
                 size="large"
                 loading={!!loading}
