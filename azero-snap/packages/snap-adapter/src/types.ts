@@ -1,3 +1,5 @@
+import { SignerPayloadJSON } from '@polkadot/types/types';
+
 export interface PublicAccount {
     address: string;
     viewKey: string;
@@ -11,7 +13,8 @@ export type RpcRequest = {
     isEnabled: () => Promise<boolean>;
     getAccountFromSeed: (seed: string) => Promise<PublicAccount>;
     generateNewAccount: () => Promise<PublicAccount>;
-    signTransaction: (transaction: string) => Promise<void>;
+    signTransaction: (transaction: SignerPayloadJSON) => Promise<{ signature: string }>;
+    getAccounts: () => string[];
 };
 
 export type RpcParams = {
