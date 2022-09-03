@@ -11,7 +11,7 @@ import { SignMessage } from "./SignMessage";
 const { Header, Content, Footer } = Layout;
 
 function App() {
-  const [menuIndex, setMenuIndex] = useState(0);
+  const [menuIndex, setMenuIndex] = useState(2);
   const [snapConnected, setSnapConnected] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -40,7 +40,7 @@ function App() {
     <Layout className="layout" style={{ minHeight: "100" }}>
       <Header className="header">
         <div className="logo" />
-        <Menu mode="horizontal" defaultSelectedKeys={["0"]}>
+        <Menu mode="horizontal" defaultSelectedKeys={["2"]}>
           <Menu.Item key="0" onClick={() => setMenuIndex(0)}>
             Create Account
           </Menu.Item>
@@ -75,8 +75,8 @@ function App() {
             </Row>
           </Card>
         )}
-        {snapConnected && menuIndex === 0 && <NewAccount />}
         {snapConnected && menuIndex === 2 && <RecoverAccount />}
+        {snapConnected && menuIndex === 0 && <NewAccount />}
         {snapConnected && menuIndex === 3 && <SignMessage />}
       </Content>
       <Footer style={{ textAlign: "center" }}>

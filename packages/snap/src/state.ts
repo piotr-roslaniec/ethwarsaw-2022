@@ -1,7 +1,6 @@
 import * as passworder from '@metamask/browser-passworder';
+import { PrivateAccount } from 'account';
 import { Mutex } from 'async-mutex';
-
-import { PrivateAccount } from './account';
 import { Bip44Node } from './types';
 
 export class WalletState {
