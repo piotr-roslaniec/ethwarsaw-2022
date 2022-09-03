@@ -1,5 +1,9 @@
 # ethwarsaw-2022
 
+## Aleph Zero Snap
+
+![Project Logo](aleph-zero-snap.png)
+
 This repository contains a submission for EthWarsaw 2022 hackathon.
 
 It contains an implementation of a wallet compatible with Aleph Zero protocol. The wallet is implemented using the polkadot.js library and MetaMask snaps plugin system.
@@ -32,4 +36,14 @@ To run wallet locally (in development mode), run:
 ```bash
 yarn start
 ```
-git sta
+
+## Installing MetaMask Flask
+
+In order to use snaps, we need to install [MetaMask Flask](https://metamask.io/flask/) extension:
+
+- Checkout [MetaMask extension](https://github.com/MetaMask/metamask-extension) that support MetaMask Flask: We're currently using tag `v10.14.0-flask.0`
+- Copy the .metamaskrc.dist file to .metamaskrc
+  - Replace the INFURA_PROJECT_ID value with your own personal Infura Project ID.
+- Build the extension locally: `yarn setup && yarn dist --build-type flask`
+- Load the unpacked extension (see "custom build" instructions)
+  from [here](https://github.com/MetaMask/metamask-extension/tree/eth-denver-2022#other-docs)
