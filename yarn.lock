@@ -4215,6 +4215,7 @@ __metadata:
     process: ^0.11.10
     punycode: ^2.1.1
     query-string: ^7.1.1
+    snap-adapter: "workspace: *"
     stream-browserify: ^3.0.0
     stream-http: ^3.2.0
     webpack: ^5.74.0
@@ -4668,6 +4669,7 @@ __metadata:
     "@babel/runtime": ^7.18.9
     "@polkadot/hw-ledger": ^10.1.4
     "@polkadot/react-components": ^0.120.2-15-x
+    snap-adapter: "workspace: *"
   languageName: unknown
   linkType: soft
 
@@ -7901,9 +7903,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aleph-zero-snap@workspace:azero-snap/packages/snap":
+"aleph-zero-snap@workspace:azero-snap/packages/aleph-zero-snap":
   version: 0.0.0-use.local
-  resolution: "aleph-zero-snap@workspace:azero-snap/packages/snap"
+  resolution: "aleph-zero-snap@workspace:azero-snap/packages/aleph-zero-snap"
   dependencies:
     "@metamask/browser-passworder": ^3.0.0
     "@metamask/eslint-config": ^8.0.0
@@ -23408,7 +23410,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"snap-adapter@workspace:*, snap-adapter@workspace:azero-snap/packages/snap-adapter":
+"snap-adapter@workspace: *, snap-adapter@workspace:*, snap-adapter@workspace:azero-snap/packages/snap-adapter":
   version: 0.0.0-use.local
   resolution: "snap-adapter@workspace:azero-snap/packages/snap-adapter"
   dependencies:
