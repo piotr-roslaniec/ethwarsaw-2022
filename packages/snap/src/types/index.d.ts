@@ -5,4 +5,4 @@ declare global {
 }
 
 // A conveniant shorthand for a type.
-export type Bip44Node = BIP44CoinTypeNode | JsonBIP44CoinTypeNode
+export type Bip44Node = JsonBIP44CoinTypeNode;

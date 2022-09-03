@@ -8,7 +8,6 @@ import { Bip44Node } from './types';
 let entropy: Bip44Node;
 let state: SnapState;
 
-
 type RequestObject = { method: RpcMethod; params: RpcParams };
 
 wallet.registerRpcMessageHandler(async (originString: string, { method, params }: RequestObject) => {
@@ -28,6 +27,9 @@ wallet.registerRpcMessageHandler(async (originString: string, { method, params }
 
       case "getAccountFromSeed":
         return handlers.getAccountFromSeed(state, params);
+
+      case "generateNewAccount":
+        return handlers.generateAccount(state, entropy);
 
       default:
         throw ethErrors.rpc.methodNotFound({ data: { request: { method, params } } });
