@@ -8,6 +8,8 @@ This repository contains a submission for EthWarsaw 2022 hackathon.
 
 It contains an implementation of a wallet compatible with Aleph Zero protocol. The wallet is implemented using the polkadot.js library and MetaMask snaps plugin system.
 
+Very short [presentation](https://docs.google.com/presentation/d/1pPtF-f4BSGIugyuOD2kFHIo5jazfBHT_QiJupiPOEd4/edit?usp=drive_web&ouid=113877850519058332016).
+
 ## Project Structure
 
 The project is structured as follows:
