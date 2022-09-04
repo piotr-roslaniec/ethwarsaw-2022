@@ -26,8 +26,10 @@ function Apps({ className = '' }: Props): React.ReactElement<Props> {
   const { theme } = useContext(ThemeContext as React.Context<ThemeDef>);
   const { isDevelopment, specName, systemChain, systemName } = useApi();
 
+
   const [snapConnected, setSnapConnected] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [seed, setSeed] = useState("");
 
   const uiHighlight = useMemo(
     () => isDevelopment
@@ -38,24 +40,9 @@ function Apps({ className = '' }: Props): React.ReactElement<Props> {
 
   useEffect(() => {
     const connectSnap = async () => {
-      const isEnabled = await snap.isEnabled();
+      const isEnabled =  (await snap.getAccounts()).length > 0;
       setLoading(isEnabled);
       setSnapConnected(isEnabled);
-
-      if (isEnabled) {
-        let accounts = await snap.getAccounts();
-        console.log({ accounts });
-
-        if (accounts.length < 1) {
-          const account = await snap.generateNewAccount();
-          accounts = [account.address]
-        }
-
-        console.log({ accounts });
-        for (const account of accounts) {
-          keyring.addExternal(account);
-        }
-      }
     }
     connectSnap().catch(console.error);
   }, []);
@@ -66,6 +53,19 @@ function Apps({ className = '' }: Props): React.ReactElement<Props> {
     try {
       await snap.connect();
       setSnapConnected(true);
+      let accounts = await snap.getAccounts();
+
+      if (accounts.length < 1) {
+          if(seed === "") {
+            const account = await snap.generateNewAccount();
+            keyring.addExternal(account.address);
+            
+          } else {
+            const account = await snap.getAccountFromSeed(seed);
+            keyring.addExternal(account.address);
+          }
+        }
+
 
     } catch (e) {
       console.error(e);
@@ -81,25 +81,32 @@ function Apps({ className = '' }: Props): React.ReactElement<Props> {
           <>
             <h1>Connect and install snap</h1>
             <p>
-              New Aleph Zero account will be automatically created from your Metamask private key.
+              New Aleph Zero account will be automatically created from your MetaMask private key.
             </p>
             <p>
               Please take a not of snap permission, that you will be asked for.
             </p>
             <p>
-              Note: We recommend using a throw-away Metamask account.
+              Note: We recommend using a throw-away MetaMask account.
             </p>
             <p>
-              This demo uses Metamask flask (canary release). In order to use it, please follow installation instructions in readme: https://github.com/piotr-roslaniec/ethwarsaw-2022/tree/docs#installing-metamask-flask.
+              This demo uses MetaMask flask (canary release). In order to use it, please follow installation instructions in readme: https://github.com/piotr-roslaniec/ethwarsaw-2022/tree/docs#installing-metamask-flask.
             </p>
             {loading && <p>Loading...</p>}
-            {!loading &&
+              {!loading &&
+              <div>
+              <div>
+                <input height={"40px"} placeholder={'seed in hex (optional)'} onChange={(e) => setSeed(e.target.value)}></input>
+              </div>
+              <div>
               <button
                 disabled={snapConnected}
                 onClick={doConnectSnap}
               >
-                Connect
-              </button>}
+                Create account
+              </button>
+              </div>
+              </div>}
           </>
         )}
         {snapConnected && (
